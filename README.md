@@ -45,7 +45,7 @@ For containerization with no transformation of content links:
     
 For containerization as well as tranformation of content links:
 
-  python3 contain.py -u [web address of site] -l [link target address]
+    python3 contain.py -u [web address of site] -l [link target address]
 
 ## License 
 containerize-experiment-stimuli is released under the MIT license, which may be found in the LICENSE file
