@@ -13,7 +13,8 @@ This software introduces a new method for replicating and sandboxing dynamic and
 - Optional: replace links with specified target addresses
 
 ## Requirements
-- ChromeDriver 2.45 (Supports Chrome v70-72)
+- ChromeDriver 2.45 (Supports Chrome v70-72) 
+    - Declare the path to the ChromeDriver in contain.py before use
 - Windows* 7 or later, macOS, or Linux
 
 ## Command-Line Usage 
