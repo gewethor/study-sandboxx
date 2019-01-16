@@ -3,7 +3,7 @@ This software introduces a new method for replicating and sandboxing dynamic and
 
 # Features 
 - Retrieves source code of static web content
-- Retrives html of JavaScript rendered web content
+- Retrieves html of JavaScript rendered web content
 - Base64 encodes images and gifs
 - Embeds CSS and Javascript via [HTMLArk](https://github.com/BitLooter/htmlark)
 - Returns false for all content links (creates unclickable links)
