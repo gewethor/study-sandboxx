@@ -17,7 +17,53 @@ This software introduces a new method for replicating and sandboxing dynamic and
     - Declare the path to the ChromeDriver in contain.py before use
 - Windows* 7 or later, macOS, or Linux
 
-## Command-Line Usage 
+## Installation
+```
+sudo apt-get install python3
+sudo apt-get install python3-pip
+pip install <insert library 1>
+pip install ...
+git clone https://github.com/gewethor/containerize-experiment-stimuli
+```
+## Getting started
+### Configuring Path to web driver
+instructions go here
+
+### Basic usage 
+To sandbox and encapsulate a single website simply:
+
+```
+python3 contain.py -u [web address of site]
+```
+
+Example
+```
+python3 contain.py -u facebook.com
+```
+[ex. output file created by script](.docs/facebook.html)
+
+## Additional commands
+### Single Website
+If a single website is being containerized, the web address and (optionally) the link target address will be entered in the command-line. 
+
+    git clone https://github.com/gewethor/containerize-experiment-stimuli
+    
+### Modifying embedded links in the content
+For containerization as well as tranformation of content links:
+
+```
+python3 contain.py -u [web address of site] -l [link target address]
+```
+
+Example:
+```
+python3 contain.py -u facebook.com
+```
+[ex. output file created by script](.docs/facebook.html)  
+
+
+    
+    
 ### Multiple Websites 
 If multiple websites are being containerized, the input will be entered via a csv file. The csv not include headers and should be structured as follows:
 
@@ -35,18 +81,7 @@ If the user does not wish the change the target addresses of the content links, 
     
     python3 contain.py -i [path-to-csv]
 
-### Single Website
-If a single website is being containerized, the web address and (optionally) the link target address will be entered in the command-line. 
 
-    git clone https://github.com/gewethor/containerize-experiment-stimuli
-    
-For containerization with no transformation of content links:
-    
-    python3 contain.py -u [web address of site]
-    
-For containerization as well as tranformation of content links:
-
-    python3 contain.py -u [web address of site] -l [link target address]
 
 ## License 
 containerize-experiment-stimuli is released under the MIT license, which may be found in the LICENSE file
