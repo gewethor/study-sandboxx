@@ -41,7 +41,7 @@ python3 contain.py -u [web address of site]
 
 Example
 ```
-python3 contain.py -u facebook.com
+python3 contain.py -u https://www.facebook.com
 ```
 [ex. output file created by script](.docs/facebook.html)
 
