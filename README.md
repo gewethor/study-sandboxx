@@ -20,12 +20,12 @@ This software introduces a new method for replicating and sandboxing dynamic and
 ```
 sudo apt-get install python3
 sudo apt-get install python3-pip
-pip install HTMLArk
-pip install selenium
-pip install argparse
-pip install beautifulsoup4
-pip install urllib3
-pip install pandas
+pip3 install HTMLArk
+pip3 install selenium
+pip3 install argparse
+pip3 install beautifulsoup4
+pip3 install urllib3
+pip3 install pandas
 git clone https://github.com/gewethor/containerize-experiment-stimuli
 ```
 ## Getting started
