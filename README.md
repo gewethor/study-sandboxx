@@ -30,7 +30,11 @@ git clone https://github.com/gewethor/containerize-experiment-stimuli
 ```
 ## Getting started
 ### Configuring Path to web driver
-instructions go here
+Within the contain.py script, the Chrome Driver needs to be in PATH. On lines 24 and 124, change the following to include the PATH to chomedriver.exe
+
+```cs
+webdriver_path = 'path-to-webdriver'
+```
 
 ### Basic usage 
 To sandbox and encapsulate a single website simply:
@@ -43,13 +47,14 @@ Example
 ```
 python3 contain.py -u https://www.facebook.com
 ```
-[ex. output file created by script](.docs/facebook.html)
+[Output](docs/basic_usage)
 
 ## Additional commands
 ### Single Website
 If a single website is being containerized, the web address and (optionally) the link target address will be entered in the command-line. 
-
-    git clone https://github.com/gewethor/containerize-experiment-stimuli
+```
+git clone https://github.com/gewethor/containerize-experiment-stimuli
+```
     
 ### Modifying embedded links in the content
 For containerization as well as tranformation of content links:
@@ -62,7 +67,7 @@ Example:
 ```
 python3 contain.py -u facebook.com
 ```
-[ex. output file created by script](.docs/facebook.html)  
+[Output](docs/single_modifying_links)  
 
 ### Multiple Websites 
 If multiple websites are being containerized, the input will be entered via a csv file. The csv not include headers and should be structured as follows:
@@ -71,15 +76,16 @@ If multiple websites are being containerized, the input will be entered via a cs
 
 | facebook | https://www.facebook.com/ | http://www.testingwebsite.com/ |
 | ------------- |:-------------:| -----:|
-| twitter | https://www.twitter.com/ |
-| buzzfeed | https://www.buzzfeed.com/ |
-| whatsapp | https://www.whatsapp.com/ | http://www.testingtesting123.com/ | 
-
+| github | https://github.com/ |
+| dropbox | https://www.dropbox.com/home |
+ 
 If the user does not wish the change the target addresses of the content links, the third column will be left blank.
 
-    git clone https://github.com/gewethor/containerize-experiment-stimuli
-    
-    python3 contain.py -i [path-to-csv]
+Example:
+```
+python3 contain.py -i [path-to-csv]
+```
+[Output](docs/multiple_usage) 
 
 ## License 
 containerize-experiment-stimuli is released under the MIT license, which may be found in the LICENSE file

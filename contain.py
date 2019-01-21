@@ -121,7 +121,7 @@ def singlesitejs():
     try:
         print("containerizing js rendered html")
         # collect html
-        webdriver_path = '/Users/gabiwethor/PycharmProjects/Python3_Projects/chromedriver'
+        webdriver_path = 'path-to-webdriver'
         chrome_options = Options()
         chrome_options.add_argument('--headless')
         chrome_options.add_argument('--window-size=1920x1080')
@@ -145,6 +145,8 @@ def singlesitejs():
             soup('a')[a]["onclick"] = "return false;"
         for p in range(len(soup('input'))):
             soup('input')[p]["onclick"] = "return false;"
+        for b in range(len(soup('button'))):
+            soup('input')[b]["onclick"] = "return false;"
 
         # remove script tags
         for script in soup("script"):
@@ -185,6 +187,8 @@ def singlesitestatic():
             soup('a')[a]["onclick"] = "return false;"
         for p in range(len(soup('input'))):
             soup('input')[p]["onclick"] = "return false;"
+        for b in range(len(soup('button'))):
+            soup('input')[b]["onclick"] = "return false;"
 
         # remove script tags
         for script in soup("script"):
