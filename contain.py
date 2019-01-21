@@ -14,7 +14,6 @@ parser.add_argument('-l', '-links', type=str, help='target url to replace conten
 args = parser.parse_args()
 
 def csvparsejs(target):
-    # target = pd.read_csv(args.csvfile, names=['col0', 'col1', 'col2'], encoding='ISO-8859-1')
     cols = target.columns.values
     for idx, line in enumerate(target[cols[1]]):
         if line != None:
@@ -46,6 +45,8 @@ def csvparsejs(target):
                     soup('a')[a]["onclick"] = "return false;"
                 for p in range(len(soup('input'))):
                     soup('input')[p]["onclick"] = "return false;"
+                for b in range(len(soup('button'))):
+                    soup('input')[b]["onclick"] = "return false;"
 
                 #remove script tags
                 for script in soup("script"):
@@ -62,7 +63,7 @@ def csvparsejs(target):
                         print(str(target[cols[2]][idx]))
 
                 #output sandboxed html
-                with open("{}_inlined_js.html".format(str(target[cols[0]][idx])), "w") as file:
+                with open("{}_contained_js.html".format(str(target[cols[0]][idx])), "w") as file:
                     file.write(str(soup))
                 file.close()
                 print("js rendered html of {} successfully containerized".format(line))
@@ -72,7 +73,6 @@ def csvparsejs(target):
     return 0
 
 def csvparsestatic(target2):
-    # target2 = pd.read_csv(args.csvfile, names=['col0', 'col1', 'col2'], encoding='ISO-8859-1')
     cols = target2.columns.values
     for idx2, line2 in enumerate(target2[cols[1]]):
         if line2 != None:
@@ -90,6 +90,8 @@ def csvparsestatic(target2):
                     soup('a')[a]["onclick"] = "return false;"
                 for p in range(len(soup('input'))):
                     soup('input')[p]["onclick"] = "return false;"
+                for b in range(len(soup('button'))):
+                    soup('input')[b]["onclick"] = "return false;"
 
                 # remove script tags
                 for script in soup("script"):
@@ -106,7 +108,7 @@ def csvparsestatic(target2):
                         print(str(target2[cols[2]][idx2]))
 
                 # output sandboxed html
-                with open("{}_inlined.html".format(str(target2[cols[0]][idx2])), "w") as file:
+                with open("{}_contained_static.html".format(str(target2[cols[0]][idx2])), "w") as file:
                     file.write(str(soup))
                 file.close()
                 print("{} successfully containerized static html".format(line2))
@@ -159,7 +161,7 @@ def singlesitejs():
             print(str(args.links))
 
         # output sandboxed html
-        with open("inlined.html", "w") as file:
+        with open("contained_js.html", "w") as file:
             file.write(str(soup))
         file.close()
         print("js rendered html of {} successfully containerized".format(args.url))
@@ -198,7 +200,7 @@ def singlesitestatic():
             print(str(args.links))
 
         # output sandboxed html
-        with open("inlined.html", "w") as file:
+        with open("contained_static.html", "w") as file:
             file.write(str(soup))
         file.close()
         print("static html of {} successfully containerized".format(args.url))
@@ -215,6 +217,7 @@ if args.csvfile:
 elif args.url:
     singlesitejs()
     singlesitestatic()
+    print("End")
 
 else:
     print("Please provide website url or csv file")
