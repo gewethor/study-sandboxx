@@ -6,23 +6,26 @@ This software introduces a new method for replicating and sandboxing dynamic and
 - Retrieves html of JavaScript rendered web content
 - Base64 encodes images and gifs
 - Embeds CSS and Javascript via [HTMLArk](https://github.com/BitLooter/htmlark)
-- Returns false for all content links (creates unclickable links)
-- Returns false for all input elements
+- Escape all links and input elements without affecting interactivity
 - Removes white space
 - Removes <script> and <iframe> tags 
 - Optional: replace links with specified target addresses
 
 ## Requirements
-- ChromeDriver 2.45 (Supports Chrome v70-72) 
-    - Declare the path to the ChromeDriver in contain.py before use
-- Windows* 7 or later, macOS, or Linux
+- [ChromeDriver](http://chromedriver.chromium.org/downloads) 2.45 (Supports Chrome v70-72) 
+    - Must declare the path to the ChromeDriver in contain.py before use
+- Windows, MacOS, or Linux or OS acceptable
 
 ## Installation
 ```
 sudo apt-get install python3
 sudo apt-get install python3-pip
-pip install <insert library 1>
-pip install ...
+pip install HTMLArk
+pip install selenium
+pip install argparse
+pip install beautifulsoup4
+pip install urllib3
+pip install pandas
 git clone https://github.com/gewethor/containerize-experiment-stimuli
 ```
 ## Getting started
@@ -61,9 +64,6 @@ python3 contain.py -u facebook.com
 ```
 [ex. output file created by script](.docs/facebook.html)  
 
-
-    
-    
 ### Multiple Websites 
 If multiple websites are being containerized, the input will be entered via a csv file. The csv not include headers and should be structured as follows:
 
@@ -80,8 +80,6 @@ If the user does not wish the change the target addresses of the content links, 
     git clone https://github.com/gewethor/containerize-experiment-stimuli
     
     python3 contain.py -i [path-to-csv]
-
-
 
 ## License 
 containerize-experiment-stimuli is released under the MIT license, which may be found in the LICENSE file
