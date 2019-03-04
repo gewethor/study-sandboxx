@@ -9,6 +9,7 @@ This software introduces a new method for replicating and sandboxing dynamic and
 - Escape all links and input elements without affecting interactivity
 - Removes white space
 - Removes <script> and <iframe> tags 
+- Removes HTML attributes allowing .ico file requests
 - Optional: replace links with specified target addresses
 
 ## Requirements
@@ -86,6 +87,20 @@ Example:
 python3 contain.py -i [path-to-csv]
 ```
 [Output](docs/multiple_usage) 
+
+## Testing Study-Sandboxx
+For usability purposes, the JS-rendered and static Study-Sandboxx processes can be easily and directly compared against other common technqiues researchers use to acquire web content. 
+
+### Installation
+```
+npm install request
+npm install node-fetch
+npm install sleep
+npm install pixelmatch
+npm install sharp
+```
+### Testing Metrics
+
 
 ## License 
 containerize-experiment-stimuli is released under the MIT license, which may be found in the LICENSE file
