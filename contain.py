@@ -20,8 +20,7 @@ def csvparsejs(target):
             try:
                 print("containerizing {}".format(line))
                 print("containerizing js rendered html")
-                #collect html
-                webdriver_path = 'path-to-webdriver'
+                webdriver_path = '' #Replace with chrome webdriver path
                 chrome_options = Options()
                 chrome_options.add_argument('--headless')
                 chrome_options.add_argument('--window-size=1920x1080')
@@ -55,6 +54,15 @@ def csvparsejs(target):
                 #remove all iframe tags
                 for iframe in soup("iframe"):
                     soup.iframe.extract()
+
+                # remove .ico requests
+                rels = soup.findAll("link", attrs={"rel": "shortcut icon"})
+                for rel in rels:
+                    rel.extract()
+
+                irels = soup.findAll("link", attrs={"rel": "icon"})
+                for irel in irels:
+                    irel.extract()
 
                 #replace links
                 if target[cols[2]][idx] != None:
@@ -101,6 +109,15 @@ def csvparsestatic(target2):
                 for iframe in soup("iframe"):
                     soup.iframe.extract()
 
+                # remove .ico requests
+                rels = soup.findAll("link", attrs={"rel": "shortcut icon"})
+                for rel in rels:
+                    rel.extract()
+
+                irels = soup.findAll("link", attrs={"rel": "icon"})
+                for irel in irels:
+                    irel.extract()
+
                 #replace links
                 if target2[cols[2]][idx2] != None:
                     for a in soup.findAll('a'):
@@ -121,7 +138,7 @@ def singlesitejs():
     try:
         print("containerizing js rendered html")
         # collect html
-        webdriver_path = 'path-to-webdriver'
+        webdriver_path = '' #Replace with chrome webdriver path
         chrome_options = Options()
         chrome_options.add_argument('--headless')
         chrome_options.add_argument('--window-size=1920x1080')
@@ -155,6 +172,15 @@ def singlesitejs():
         # remove all iframe tags
         for iframe in soup("iframe"):
             soup.iframe.extract()
+
+        # remove .ico requests
+        rels = soup.findAll("link", attrs={"rel": "shortcut icon"})
+        for rel in rels:
+            rel.extract()
+
+        irels = soup.findAll("link", attrs={"rel": "icon"})
+        for irel in irels:
+            irel.extract()
 
         #replace links
         if args.links:
@@ -197,6 +223,15 @@ def singlesitestatic():
         # remove all iframe tags
         for iframe in soup("iframe"):
             soup.iframe.extract()
+
+        # remove .ico requests
+        rels = soup.findAll("link", attrs={"rel": "shortcut icon"})
+        for rel in rels:
+            rel.extract()
+
+        irels = soup.findAll("link", attrs={"rel": "icon"})
+        for irel in irels:
+            irel.extract()
 
         if args.links:
             for a in soup.findAll('a'):
