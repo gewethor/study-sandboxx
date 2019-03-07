@@ -2,20 +2,20 @@
 This software introduces a new method for replicating and sandboxing dynamic and static web content in a high-fidelity way that preserves the dynamism, interactability, and aesthetic quality of the original. The output of this script will include the web content before containerization, the containerized content with support for JS-rendered content, and containzerized content without JS-rendering.
 
 # Features 
-- Retrieves source code of static web content
-- Retrieves html of JavaScript rendered web content
-- Base64 encodes images and gifs
-- Embeds CSS and Javascript via [HTMLArk](https://github.com/BitLooter/htmlark)
-- Escape all links and input elements without affecting interactivity
-- Removes white space
-- Removes <script> and <iframe> tags 
-- Removes HTML attributes allowing .ico file requests
-- Optional: replace links with specified target addresses
+* Retrieves source code of static web content
+* Retrieves html of JavaScript rendered web content
+* Base64 encodes images and gifs
+* Embeds CSS and Javascript via [HTMLArk](https://github.com/BitLooter/htmlark)
+* Escape all links and input elements without affecting interactivity
+* Removes white space
+* Removes <script> and <iframe> tags 
+* Removes HTML attributes allowing .ico file requests
+* Optional: replace links with specified target addresses
 
 ## Requirements
-- [ChromeDriver](http://chromedriver.chromium.org/downloads) 2.45 (Supports Chrome v70-72) 
-    - Must declare the path to the ChromeDriver in contain.py before use
-- Windows, MacOS, or Linux or OS acceptable
+* [ChromeDriver](http://chromedriver.chromium.org/downloads) 2.45 (Supports Chrome v70-72) 
+    * Must declare the path to the ChromeDriver in contain.py before use
+* Windows, MacOS, or Linux or OS acceptable
 
 ## Installation
 ```
@@ -88,10 +88,24 @@ python3 contain.py -i [path-to-csv]
 ```
 [Output](docs/multiple_usage) 
 
-## Testing Study-Sandboxx
-For usability purposes, the JS-rendered and static Study-Sandboxx processes can be easily and directly compared against other common technqiues researchers use to acquire web content. 
+# Testing Study-Sandboxx
+For usability purposes, the JS-rendered and static Study-Sandboxx processes can be easily and directly compared against other common technqiues researchers use when running studies with websites from the wild. This testing component compares our sandboxing approach against using the live site, saving the website locally using "Save As" with the format "Webpage, HTML Only", and [Grabzit](https://grabz.it/api/) a tool used to capture and convert webpages. 
 
-### Installation
+## Testing Metrics
+Each of the containerization techniques are compared using six testing metrics categorized into three groups; fidelity, security, and privacy.
+
+* Fidelity
+    * The percent of pixel difference between a screenshot of the origin website and a screenshot of website aquired using each of the content techniques 
+    * The total amount of interactive elements within each webpage
+* Security
+    * The number of running scripts within the browser
+    * The number of non-image http requests for third party sources
+* Privacy
+    * The number of cookies from the origin website
+    * The number of running iframes
+
+
+## Installation
 ```
 npm install request
 npm install node-fetch
@@ -99,8 +113,20 @@ npm install sleep
 npm install pixelmatch
 npm install sharp
 ```
-### Testing Metrics
+## Requirements 
+In order to run the script, a free account with [Grabzit](https://grabz.it/api/) must be created so an application aey and "secret" are generated. The application key and "secret" must be declared in the script before use.
 
+## Usage
+To run the testing script:
+```
+node test.js [target webpage]
+```
+Example: 
+```
+node test.js https://www.facebook.com
+```
+
+[Output](docs/) 
 
 ## License 
 containerize-experiment-stimuli is released under the MIT license, which may be found in the LICENSE file
