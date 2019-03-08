@@ -1,3 +1,13 @@
+# @Author: Gabi Wethor, Matt Hale
+# @Date:   2019-03-07T14:03:54-06:00
+# @Email:  mlhale@unomaha.edu
+# @Filename: contain.py
+# @Last modified by:   matthale
+# @Last modified time: 2019-03-07T14:18:33-06:00
+# @Copyright: Copyright (C) 2019 Matthew L. Hale
+
+
+
 import urllib.request
 import htmlark
 from time import sleep
@@ -12,6 +22,7 @@ parser.add_argument('-i', '-input', '-csvfile', type=argparse.FileType('r'), hel
 parser.add_argument('-u', '-url', type=str, help='url of target webpage', dest='url', required=False)
 parser.add_argument('-l', '-links', type=str, help='target url to replace content links', dest='links', required=False)
 args = parser.parse_args()
+webdriver_path = ''#Replace with chrome webdriver path
 
 def csvparsejs(target):
     cols = target.columns.values
@@ -20,7 +31,6 @@ def csvparsejs(target):
             try:
                 print("containerizing {}".format(line))
                 print("containerizing js rendered html")
-                webdriver_path = '' #Replace with chrome webdriver path
                 chrome_options = Options()
                 chrome_options.add_argument('--headless')
                 chrome_options.add_argument('--window-size=1920x1080')
@@ -138,7 +148,6 @@ def singlesitejs():
     try:
         print("containerizing js rendered html")
         # collect html
-        webdriver_path = '' #Replace with chrome webdriver path
         chrome_options = Options()
         chrome_options.add_argument('--headless')
         chrome_options.add_argument('--window-size=1920x1080')
