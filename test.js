@@ -3,7 +3,6 @@ var myArgs = process.argv.slice(2);
 target = myArgs[0];
 
 var request = require('request');
-var cheerio = require('cheerio');
 const fetch = require("node-fetch");
 var fs = require('fs')
 var sleep = require('sleep');
@@ -287,15 +286,6 @@ var colors = require('colors');
 
         studySandboxxStaticInteractivesAmount = input.length + link.length;
 
-        var fs = require('fs');
-        var file = fs.readFileSync('contained_static.html');
-        var $ = cheerio.load(file);
-        var divStatic = cheerio.html($('div'));
-            //console.log(divStatic);
-            //console.log($(divStatic).contents().length);
-        var scriptStatic = cheerio.html($('script'));
-                //console.log($(scriptStatic).contents().length);
-
         //# of iframes
         let iframes = await driver.findElements(By.tagName('iframe'));
         studySandboxxStaticIframesAmount = iframes.length;
@@ -364,15 +354,6 @@ var colors = require('colors');
 
         studySandboxxJSInteractivesAmount = input.length + link.length;
 
-        var fs = require('fs');
-        var file = fs.readFileSync('contained_js.html');
-        var $ = cheerio.load(file);
-        var divJS = cheerio.html($('div'));
-            //console.log(divJS);
-            //console.log($(divJS).contents().length);
-        var scriptJS = cheerio.html($('script'));
-                //console.log($(scriptJS).contents().length);
-
         //# of iframes
         let iframes = await driver.findElements(By.tagName('iframe'));
         studySandboxxJSIframesAmount = iframes.length;
@@ -391,7 +372,7 @@ var colors = require('colors');
     async function grabzit() {
         var grabzit = require('grabzit');
         // replace with GrabIt Application Key and Secret
-        var client = new grabzit("Application Key", "Secret");
+        var client = new grabzit("", "");
         client.url_to_image(myArgs[0]);
         client.save_to("grabzit.png", function (error, id){
             if (error != null){
@@ -401,8 +382,8 @@ var colors = require('colors');
     }
 
     async function saveAsImgCompare() {
-        var originPNG = fs.createReadStream('origin.png').pipe(new PNG()).on('parsed', doneReading);
-        var saveAsPNG = fs.createReadStream('saveAs.png').pipe(new PNG()).on('parsed', doneReading);
+        var originPNG = await fs.createReadStream('origin.png').pipe(new PNG()).on('parsed', doneReading);
+        var saveAsPNG = await fs.createReadStream('saveAs.png').pipe(new PNG()).on('parsed', doneReading);
         filesRead = 0;
 
         async function doneReading() {
@@ -425,8 +406,8 @@ var colors = require('colors');
     }
 
     async function studySandboxxStaticImgCompare() {
-        var originPNG = fs.createReadStream('origin.png').pipe(new PNG()).on('parsed', doneReading);
-        var staticPNG = fs.createReadStream('static.png').pipe(new PNG()).on('parsed', doneReading);
+        var originPNG = await fs.createReadStream('origin.png').pipe(new PNG()).on('parsed', doneReading);
+        var staticPNG = await fs.createReadStream('static.png').pipe(new PNG()).on('parsed', doneReading);
             filesRead = 0;
 
         async function doneReading() {
@@ -449,8 +430,8 @@ var colors = require('colors');
     }
 
     async function studySandboxxJSImgCompare() {
-        var originPNG = fs.createReadStream('origin.png').pipe(new PNG()).on('parsed', doneReading);
-        var JSPNG = fs.createReadStream('JS.png').pipe(new PNG()).on('parsed', doneReading);
+        var originPNG = await fs.createReadStream('origin.png').pipe(new PNG()).on('parsed', doneReading);
+        var JSPNG = await fs.createReadStream('JS.png').pipe(new PNG()).on('parsed', doneReading);
             filesRead = 0;
 
         async function doneReading() {
@@ -473,8 +454,8 @@ var colors = require('colors');
     }
 
     async function grabzitImgCompare() {
-        var originresizedPNG = fs.createReadStream('origin_resized.png').pipe(new PNG()).on('parsed', doneReading);
-        var grabzitPNG = fs.createReadStream('grabzit.png').pipe(new PNG()).on('parsed', doneReading);
+        var originresizedPNG = await fs.createReadStream('origin_resized.png').pipe(new PNG()).on('parsed', doneReading);
+        var grabzitPNG = await fs.createReadStream('grabzit.png').pipe(new PNG()).on('parsed', doneReading);
             filesRead = 0;
 
         async function doneReading() {
