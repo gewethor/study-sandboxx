@@ -190,7 +190,7 @@ async function grabzit() {
     });
 
     console.log('...done running grabzit.')
-    sleep.sleep(10);
+    sleep.sleep(5);
 }
 
 async function saveAsImgCompare() {
