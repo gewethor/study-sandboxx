@@ -126,7 +126,7 @@ Example:
 node compare.js https://www.facebook.com
 ```
 
-[Output](docs/) 
+[Output](docs/testing_output/compare_output.png) 
 
 ## License 
 containerize-experiment-stimuli is released under the MIT license, which may be found in the LICENSE file
