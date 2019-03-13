@@ -279,7 +279,7 @@ async function execute() {
         table.push(
             ['Fidelity'],
             [],
-            ['pixel difference %', '0%', String(saveAsPixelDiff) + '%', '100%', String(studySandboxxJSPixelDiff) + '%', String(studySandboxxStaticPixelDiff) + '%'],
+            ['pixel difference %', '0%', String(saveAsPixelDiff) + '%', '0%', String(studySandboxxJSPixelDiff) + '%', String(studySandboxxStaticPixelDiff) + '%'],
             ['interactive elements', String(origin_num_of_interactives), String(saveas_num_of_interactives), '0', String(js_num_of_interactives), String(static_num_of_interactives)],
             [],
             ['Security'],
