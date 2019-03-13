@@ -108,22 +108,22 @@ Each of the containerization techniques are compared using six testing metrics c
 ## Installation
 ```
 npm install request
-npm install node-fetch
 npm install sleep
 npm install pixelmatch
 npm install sharp
+pip3 install GrabzIt
 ```
 ## Requirements 
-In order to run the script, a free account with [Grabzit](https://grabz.it/api/) must be created so an application aey and "secret" are generated. The application key and "secret" must be declared in the script before use.
+In order to run the script, a free account with [Grabzit](https://grabz.it/api/) must be created so an application key and "secret" are generated. The application key and "secret" must be declared in the grabzit.py file.
 
 ## Usage
 To run the testing script:
 ```
-node test.js [target webpage]
+node compare.js [target webpage]
 ```
 Example: 
 ```
-node test.js https://www.facebook.com
+node compare.js https://www.facebook.com
 ```
 
 [Output](docs/) 
