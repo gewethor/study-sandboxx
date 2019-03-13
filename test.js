@@ -46,9 +46,6 @@ var studySandboxxStaticPixelDiff;
 var studySandboxxJSPixelDiff;
 var originImgPixelDiff;
 
-var originPNG;
-var originresizedPNG;
-
 let promiseSaveAs;
 let promiseStatic;
 let promiseJS;
@@ -372,7 +369,7 @@ var colors = require('colors');
     async function grabzit() {
         var grabzit = require('grabzit');
         // replace with GrabIt Application Key and Secret
-        var client = new grabzit("", "");
+        var client = new grabzit("NDM0NWRhZTJkNzkxNGUxMThlM2JmODVkZjFkMWJkZGI=", "Pz8/dT8/P1B2Pyk/P3E/Pz8AP1U/Pyc/XT9PSH4/PxE=");
         client.url_to_image(myArgs[0]);
         client.save_to("grabzit.png", function (error, id){
             if (error != null){
@@ -395,11 +392,6 @@ var colors = require('colors');
             var totalPixels = 1920 * 1080;
             saveAsPixelDiff = (numDiffPixels / totalPixels).toFixed(2) * 100;
             console.log(saveAsPixelDiff);
-
-           let promiseSaveAs = new Promise((resolve, reject) => {
-                setTimeout(() => resolve("done!"), 1000)
-           });
-           let result = await promiseSaveAs; // wait till the promise resolves (*)
 
         };
 
@@ -514,11 +506,12 @@ async function execute() {
     await metrics_js();
     await grabzit();
     await saveAsImgCompare();
-    await Promise.all([promiseSaveAs]).then(studySandboxxStaticImgCompare());
-    await Promise.all([promiseStatic]).then(studySandboxxJSImgCompare());
-    await Promise.all([promiseJS]).then(grabzitImgCompare());
-    await Promise.all([promiseJS]).then(outputTable());
-    await grabzitImgCompare();
+    //await Promise.all([promiseSaveAs]).then(studySandboxxStaticImgCompare());
+    //await Promise.all([promiseStatic]).then(studySandboxxJSImgCompare());
+    //await Promise.all([promiseJS]).then(grabzitImgCompare());
+    //await Promise.all([promiseJS]).then(outputTable());
+    //await grabzitImgCompare();
+    await outputTable();
 }
 
 execute();
