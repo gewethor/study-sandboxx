@@ -89,7 +89,7 @@ python3 contain.py -i [path-to-csv]
 [Output](docs/multiple_usage) 
 
 # Testing Study-Sandboxx
-For usability purposes, the JS-rendered and static Study-Sandboxx processes can be easily and directly compared against other common technqiues researchers use when running studies with websites from the wild. This testing component compares our sandboxing approach against using the live site, saving the website locally using "Save As" with the format "Webpage, HTML Only", and [Grabzit](https://grabz.it/api/) a tool used to capture and convert webpages. 
+For usability purposes, the JS-rendered and static Study-Sandboxx processes can be easily and directly compared against other common techniques researchers use when running studies with websites from the wild. This testing component compares our sandboxing approach against using the live site, saving the website locally using "Save As" with the format "Webpage, HTML Only", and [Grabzit](https://grabz.it/api/) a tool used to capture and convert webpages. 
 
 ## Testing Metrics
 Each of the containerization techniques are compared using six testing metrics categorized into three groups; fidelity, security, and privacy.
