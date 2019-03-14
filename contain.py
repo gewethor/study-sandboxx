@@ -20,7 +20,7 @@ def csvparsejs(target):
             try:
                 print("containerizing {}".format(line))
                 print("containerizing js rendered html")
-                webdriver_path = '/Users/gabiwethor/PycharmProjects/containerize-experiment-stimuli/chromedriver' #Replace with chrome webdriver path
+                webdriver_path = '' #Replace with chrome webdriver path
                 chrome_options = Options()
                 chrome_options.add_argument('--headless')
                 chrome_options.add_argument('--window-size=1920x1080')
@@ -138,7 +138,7 @@ def singlesitejs():
     try:
         print("containerizing js rendered html")
         # collect html
-        webdriver_path = '/Users/gabiwethor/PycharmProjects/containerize-experiment-stimuli/chromedriver' #Replace with chrome webdriver path
+        webdriver_path = '' #Replace with chrome webdriver path
         chrome_options = Options()
         chrome_options.add_argument('--headless')
         chrome_options.add_argument('--window-size=1920x1080')
