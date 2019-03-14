@@ -95,7 +95,7 @@ For usability purposes, the JS-rendered and static Study-Sandboxx processes can 
 Each of the containerization techniques are compared using six testing metrics categorized into three groups; fidelity, security, and privacy.
 
 * Fidelity
-    * The percent of pixel difference between a screenshot of the origin website and a screenshot of website aquired using each of the content techniques 
+    * The percent of pixel difference between a screenshot of the origin website and a screenshot of website acquired using each of the content techniques 
     * The total amount of interactive elements within each webpage
 * Security
     * The number of running scripts within the browser
