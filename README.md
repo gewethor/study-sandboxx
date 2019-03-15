@@ -61,7 +61,7 @@ python3 contain.py -u [web address of site] -l [link target address]
 
 Example:
 ```
-python3 contain.py -u facebook.com
+python3 contain.py -u https://www.facebook.com -l http://www.anothersite.com/
 ```
 [Output](docs/single_modifying_links)  
 
