@@ -112,9 +112,6 @@ async function collectOrigin() {
     return [num_of_scripts, num_non_image_resources, num_of_cookies, num_of_interactives, num_of_iframes];
 }
 
-/*  Given a particular type of content, computes and returns the following:
-    num_of_scripts, num_non_image_resources, num_of_cookies, num_of_interactives, num_of_iframes
-*/
 async function computeMetrics(type, path_to_html) {
     console.log("Computing Metrics for "+type+"...")
     let driver = await new Builder()

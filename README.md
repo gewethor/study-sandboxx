@@ -13,7 +13,7 @@ This software introduces a new method for replicating and sandboxing dynamic and
 * Optional: replace links with specified target addresses
 
 ## Requirements
-* [ChromeDriver](http://chromedriver.chromium.org/downloads) 2.45 (Supports Chrome v70-72) 
+* [ChromeDriver](http://chromedriver.chromium.org/downloads) Version 2.46
     * Must declare the path to the ChromeDriver in contain.py before use
 * Windows, MacOS, or Linux or OS acceptable
 
@@ -31,13 +31,13 @@ git clone https://github.com/gewethor/containerize-experiment-stimuli
 ```
 ## Getting started
 ### Configuring Path to web driver
-Within the contain.py script, the Chrome Driver needs to be in PATH. On lines 24 and 124, change the following to include the PATH to chomedriver.exe
+Within the contain.py script, the Chrome Driver needs to be in PATH. On lines 23 and 141, change the following to include the PATH to chomedriver.exe
 
 ```cs
-webdriver_path = 'path-to-webdriver'
+webdriver_path = '' #Replace with chrome webdriver path
 ```
 
-### Basic usage 
+### Basic usage - Single Website
 To sandbox and encapsulate a single website simply:
 
 ```
@@ -49,16 +49,11 @@ Example
 python3 contain.py -u https://www.facebook.com
 ```
 [Output](docs/basic_usage)
-
-## Additional commands
-### Single Website
-If a single website is being containerized, the web address and (optionally) the link target address will be entered in the command-line. 
-```
-git clone https://github.com/gewethor/containerize-experiment-stimuli
-```
     
 ### Modifying embedded links in the content
-For containerization as well as tranformation of content links:
+If a single website is being containerized, the web address and (optionally) the link target address will be entered in the command-line.
+
+For containerization as well as transformation of content links:
 
 ```
 python3 contain.py -u [web address of site] -l [link target address]
@@ -66,7 +61,7 @@ python3 contain.py -u [web address of site] -l [link target address]
 
 Example:
 ```
-python3 contain.py -u facebook.com
+python3 contain.py -u https://www.facebook.com -l http://www.anothersite.com/
 ```
 [Output](docs/single_modifying_links)  
 
@@ -89,13 +84,13 @@ python3 contain.py -i [path-to-csv]
 [Output](docs/multiple_usage) 
 
 # Testing Study-Sandboxx
-For usability purposes, the JS-rendered and static Study-Sandboxx processes can be easily and directly compared against other common technqiues researchers use when running studies with websites from the wild. This testing component compares our sandboxing approach against using the live site, saving the website locally using "Save As" with the format "Webpage, HTML Only", and [Grabzit](https://grabz.it/api/) a tool used to capture and convert webpages. 
+For usability purposes, the JS-rendered and static Study-Sandboxx processes can be easily and directly compared against other common techniques researchers use when running studies with websites from the wild. This testing component compares our sandboxing approach against using the live site, saving the website locally using "Save As" with the format "Webpage, HTML Only", and [Grabzit](https://grabz.it/api/) a tool used to capture and convert webpages. 
 
 ## Testing Metrics
 Each of the containerization techniques are compared using six testing metrics categorized into three groups; fidelity, security, and privacy.
 
 * Fidelity
-    * The percent of pixel difference between a screenshot of the origin website and a screenshot of website aquired using each of the content techniques 
+    * The percent of pixel difference between a screenshot of the origin website and a screenshot of website acquired using each of the content techniques 
     * The total amount of interactive elements within each webpage
 * Security
     * The number of running scripts within the browser
@@ -112,6 +107,9 @@ npm install sleep
 npm install pixelmatch
 npm install sharp
 pip3 install GrabzIt
+npm install cli-table
+npm install colors
+npm install python-shell
 ```
 ## Requirements 
 In order to run the script, a free account with [Grabzit](https://grabz.it/api/) must be created so an application key and "secret" are generated. The application key and "secret" must be declared in the grabzit.py file.
