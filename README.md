@@ -53,7 +53,7 @@ python3 contain.py -u https://www.facebook.com
 ### Modifying embedded links in the content
 If a single website is being containerized, the web address and (optionally) the link target address will be entered in the command-line.
 
-For containerization as well as tranformation of content links:
+For containerization as well as transformation of content links:
 
 ```
 python3 contain.py -u [web address of site] -l [link target address]
