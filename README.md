@@ -31,10 +31,10 @@ git clone https://github.com/gewethor/containerize-experiment-stimuli
 ```
 ## Getting started
 ### Configuring Path to web driver
-Within the contain.py script, the Chrome Driver needs to be in PATH. On lines 24 and 124, change the following to include the PATH to chomedriver.exe
+Within the contain.py script, the Chrome Driver needs to be in PATH. On lines 23 and 141, change the following to include the PATH to chomedriver.exe
 
 ```cs
-webdriver_path = 'path-to-webdriver'
+webdriver_path = '' #Replace with chrome webdriver path
 ```
 
 ### Basic usage - Single Website
