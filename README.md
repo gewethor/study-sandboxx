@@ -112,6 +112,8 @@ npm install sleep
 npm install pixelmatch
 npm install sharp
 pip3 install GrabzIt
+npm install cli-table
+npm install colors
 ```
 ## Requirements 
 In order to run the script, a free account with [Grabzit](https://grabz.it/api/) must be created so an application key and "secret" are generated. The application key and "secret" must be declared in the grabzit.py file.
