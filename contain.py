@@ -20,7 +20,7 @@ def csvparsejs(target):
             try:
                 print("containerizing {}".format(line))
                 print("containerizing js rendered html")
-                webdriver_path = '/Users/gabiwethor/PycharmProjects/containerize-experiment-stimuli/chromedriver' #Replace with chrome webdriver path
+                webdriver_path = '' #Replace with chrome webdriver path
                 chrome_options = Options()
                 chrome_options.add_argument('--headless')
                 chrome_options.add_argument('--window-size=1920x1080')
@@ -138,7 +138,7 @@ def singlesitejs():
     try:
         print("containerizing js rendered html")
         # collect html
-        webdriver_path = '/Users/gabiwethor/PycharmProjects/containerize-experiment-stimuli/chromedriver' #Replace with chrome webdriver path
+        webdriver_path = '' #Replace with chrome webdriver path
         chrome_options = Options()
         chrome_options.add_argument('--headless')
         chrome_options.add_argument('--window-size=1920x1080')
@@ -146,12 +146,12 @@ def singlesitejs():
         browser.get(args.url)
         pagesource = browser.page_source.encode('utf-8')
         sleep(10)
-        html = open("source.html", "w", encoding="utf-8")
+        html = open("js_source.html", "w", encoding="utf-8")
         html.write(str(pagesource))
         html.close()
 
         sleep(5)
-        inlinedhtml = htmlark.convert_page("source.html", ignore_errors=True)
+        inlinedhtml = htmlark.convert_page("js_source.html", ignore_errors=True)
 
         # remove whitespace
         inlinedhtml = ' '.join(inlinedhtml.split())
@@ -199,10 +199,10 @@ def singlesitejs():
 
 def singlesitestatic():
     try:
-        urllib.request.urlretrieve(args.url, "source.html")
+        urllib.request.urlretrieve(args.url, "static_source.html")
         sleep(5)
 
-        inlinedhtml = htmlark.convert_page("source.html", ignore_errors=True)
+        inlinedhtml = htmlark.convert_page("static_source.html", ignore_errors=True)
 
         # remove whitespace
         inlinedhtml = ' '.join(inlinedhtml.split())
